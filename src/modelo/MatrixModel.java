@@ -3,6 +3,11 @@ package modelo;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * Clase que modela el juego, toma en cuenta tanto el "score" como el estado de la matriz
+ * @author Lemark
+ *
+ */
 public class MatrixModel {
 
 	private int[][] matrix;
@@ -38,18 +43,34 @@ public class MatrixModel {
 		matrix[i2][j2] = (int) (Math.pow(2, (double) potencia2));
 	}
 
+	/**
+	 * Metodo que modifica a la matriz.
+	 * @param matrix Matriz nueva.
+	 */
 	public void setMatrix(int[][] matrix) {
 		this.matrix = matrix;
 	}
 
+	/**
+	 * Metodo para obtener la matriz
+	 * @return Retorna la matriz en su estado actual.
+	 */
 	public int[][] getMatrix() {
 		return this.matrix;
 	}
 
+	/**
+	 * Cambia el puntaje del juego.
+	 * @param newScore Nuevo puntaje para modificar.
+	 */
 	public void setScore(int newScore) {
 		score = newScore;
 	}
 
+	/**
+	 * Obtiene el puntaje actual del juego.
+	 * @return Retorna el puntaje del juego.
+	 */
 	public int getScore() {
 		return this.score;
 	}
@@ -86,7 +107,7 @@ public class MatrixModel {
 
 	/**
 	 * Metodo que realiza un movimiento dentro de la matriz. W - arriba, D -
-	 * derecha, S - abajo, A - izquierda.
+	 * derecha, S - abajo, A - izquierda. Tambien genera un 2 o un 4 en una posicion aleatoria vacia.
 	 * 
 	 * @param option
 	 *            Opcion de entrada por teclado.
@@ -114,6 +135,10 @@ public class MatrixModel {
 
 	}
 
+	/**
+	 * Metodo que retorna una posicion vacia dentro de la matriz de manera aleatoria.
+	 * @return Coordenadas de la celda vacia.
+	 */
 	private Pair getRandomEmptyPosition() {
 		ArrayList<Pair> emptyPositions = new ArrayList();
 		for (int i = 0; i < 4; i++) {
@@ -129,6 +154,9 @@ public class MatrixModel {
 		return emptyPositions.get(randomPosition);
 	}
 
+	/**
+	 * Movimiento arriba en el juego.
+	 */
 	private void movimientoArriba() {
 		for (int i = 0; i < 4; i++) {
 			int posicion = 0;
@@ -169,6 +197,9 @@ public class MatrixModel {
 		}
 	}
 
+	/**
+	 * Movimiento abajo en el juego.
+	 */
 	private void movimientoIzquierda() {
 		for (int i = 0; i < 4; i++) {
 			int posicion = 0;
@@ -209,6 +240,9 @@ public class MatrixModel {
 		}
 	}
 
+	/**
+	 * Movimiento derecha en el juego.
+	 */
 	private void movimientoDerecha() {
 		for (int i = 0; i < 4; i++) {
 			int posicion = 3;
@@ -248,6 +282,9 @@ public class MatrixModel {
 		}
 	}
 
+	/**
+	 * Movimiento izquierda en el juego.
+	 */
 	private void movimientoAbajo() {
 		for (int i = 0; i < 4; i++) {
 			int posicion = 3;
@@ -287,6 +324,9 @@ public class MatrixModel {
 		}
 	}
 
+	/**
+	 * Metodo toString para mostrar a la interfaz de consola.
+	 */
 	@Override
 	public String toString() {
 		StringBuffer stringPrint = new StringBuffer();

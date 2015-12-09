@@ -26,9 +26,12 @@ public class Game {
 		} while(matrixModel.continuePlaying());
 	}
 	
+	/**
+	 * Metodo principal.
+	 * @param args Argumentos de consola.
+	 */
 	public static void main(String[] args) {
 		Game juego = new Game();
 		juego.play();
-		System.out.println(juego.matrixModel);
 	}
 }
